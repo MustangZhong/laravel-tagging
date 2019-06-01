@@ -25,6 +25,9 @@ return [
 
 	// Delimiter used within tags
 	'delimiter' => '-',
+
+    // The tag should be unique or not
+    'unique_tag_name' => true,
 	
 	// Model to use for the relation between tags and tagged records
 	'tagged_model' => '\Conner\Tagging\Model\Tagged',

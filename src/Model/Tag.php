@@ -36,10 +36,14 @@ class Tag extends Eloquent
         $this->taggingUtility = app(TaggingUtility::class);
     }
 
+    /**
+     * @param array $options
+     * @return bool
+     */
     public function save(array $options = [])
     {
-        if(strlen($this->name) < 1) {
-            throw new \RuntimeException('Cannot save a tag with an empty name');
+        if(mb_strlen($this->name) < 2) {
+            throw new \RuntimeException('标签必须两个字以上.Cannot save a tag with an empty name');
         }
 
         $normalizer = config('tagging.normalizer');
